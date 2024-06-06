@@ -299,19 +299,13 @@ Akash 是一个去中心化交易所，市场的健康取决于其交易商品�
 
 - 供应商补贴
 
-Early on in the network's lifecycle, the network will need to subsidize providers to ensure the network has enough computing power to offer attractive prices to tenants.
+在网络生命周期的早期，网络需要补贴提供商，以确保网络具有足够的计算能力，为租户提供有吸引力的价格。
 
-There are numerous ways to subsidize providers, some considerations are:
+补贴供应商的方法有很多种，以下是一些需要考虑的因素：
 
-* Cover cost of the operational and amortized cost of the hardware for a period of time.
-* Incentivize based on amount wokload they host, similar to [Filecoin Plus][filecoin-plus] Program.
-* Use an "exponential discount model" described in Evolution of the Akash Network Token Economics [blog post][akt-evolution].
-
-- 公共物品基金
-
-We propose a portion of the Tokens from the `Incentive Distribution Pool` be allocated to the Public Goods Fund to incentivize the growth of the Akash Network. The Public Goods Fund is a pool of AKT that is distributed to developers who build applications that grow the Akash Network and its adoption. The Developer Fund is distributed through on-chain governance.
-
-The mechanism for distributing the Developer Fund will be determined by the [Steering Committee][streeing-committee].
+* 承担一段时间内硬件的运营成本和摊销成本。
+* 根据他们托管的工作量提供激励，类似于Filecoin Plus计划。
+* 使用 Akash 网络代币经济学演变博客文章中描述的“指数折扣模型” 
 
 ### 质押者
 
