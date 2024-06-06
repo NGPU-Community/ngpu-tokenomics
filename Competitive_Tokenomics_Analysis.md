@@ -227,3 +227,132 @@ Total Supply: 21M
 
 ## 子网注册质押   
 2024-05-14 $2374.21
+
+
+# Akash Network ($AKT)
+
+Akash 网络: 基于cosmos 的去中心化云计算平台
+
+由以下几个主要部分组成: Akash 提供商，管理基础设施和 Kubernetes 集群；Akash 网络，一个类似于 Airbnb 的数据中心多功能平台，提供成本效益、选择、标准化资源、开源原则和社区参与；以及 Akash 租户，将应用程序部署为 Docker 容器，受益于去中心化部署。它们共同构成了 Akash 网络的基础
+
+## 交易所
+- Exchange: Osmosis、Coinbase、upbit、Kraken、Gate.io、HTX、KuCoin、Cryptom.com、Bitthumb、XT.com
+
+## 2024.6.5 币值信息
+- 价格: $4.47
+- 总供应量: 239,310,076 AKT
+- 最大供应量: 388,539,008 AKT
+- 24小时交易量: $13,298,207
+
+## AKT作用
+- 安全: 为 Akash 网络由权益证明 (PoS) 区块链保护，而 AKT 用于通过质押来保护网络。质押 AKT 为质押者提供了被动收入来源，并提高了网络的安全性。
+- 治理: Akash 网络由社区所有，网络的各个方面均由 AKT 持有者管理。AKT 持有者可以对改进网络的提案进行投票，并管理通货膨胀率和收取率等关键参数。
+- 价值交换: AKT 提供了一种存储和交换价值的默认机制，并充当 Cosmos 多币种、多链生态系统中的储备货币。
+- 激励: 为 Akash网络生态提供激励
+
+## 经济模型图： 
+
+![IDP](https://akash.network/_astro/akt-features.DLGCmQ4N.svg)
+
+- [AKT 解锁时间表](https://docs.google.com/spreadsheets/d/1MUULetp59lgNq0z4ckVI51QdtMGvqtKOW8wRfX5R8yY/edit#gid=2130333819)
+
+
+## AKT 2.0的主要特点是
+- 收取和支付费用（现已上线）
+- 稳定的支付和结算（现已上线）
+- 激励分配池
+- 供应商补贴
+- 公共物品基金
+
+## AKT 2.0 详情
+
+### 网络安全与AKT值成正比
+
+Akash 网络通过其权益证明共识来确保安全，这要求质押者使用 AKT 代币作为质押。质押的 AKT 越多，网络的安全性就越高。AKT 的价值由需求驱动，因此随着网络使用量的增加，其价值也必须增加，以保证所有参与者的最大安全性。
+
+正如原始经济学 [paper][akt-economics-1], AKT 的初始供应量, $t=0$, 定义为 $M_0 = 10^8$ AKT 的最大供应量计算为 $M_{max}\approx3.89 M_0$ 和 $M_{max} - M_0$ 在网络的整个生命周期内，将代币分发给 AKT 质押者，作为保护网络的奖励。奖励在每个区块中分配，金额由[Cosmos SDK `x/mint` module][cosmos-sdk-x-mint]模块中定义的网络参数决定。
+
+这些网络参数是通过链上治理设置的，并遵循衰减函数，随着时间的推移，通货膨胀率会降低。随着奖励金额随着时间的推移而减少，对于 AKT 持有者来说，通过质押锁定其代币的吸引力会降低，从而降低了网络的安全性。
+
+### 收取并支付费用
+
+由于 AKT 的价值由需求驱动，我们建议网络对租户向提供商支付的托管费征税，并将其分配给网络的安全预算。这确保了 Akash 网络的使用和安全之间的直接一致性。
+
+Akash 是一个去中心化交易所，市场的健康取决于其交易商品（计算）的流动性。我们建议租户在从市场获取流动性时支付手续费，提供商在向市场提供流动性时支付手续费。手续费在创建时从订单中扣除，并由网络通过链上治理设定.
+
+预计 AKT 持有者将选择足够高的费用来确保网络安全，但又不会太高而阻碍网络的使用和增长。
+
+### 支持多种货币，支付结算稳定
+
+我们建议 Akash 网络实施多代币结算机制，允许使用稳定代币支付托管费用，让用户能够预先预测托管成本。代币白名单可以通过链上治理完成。
+
+此外，每一种列入白名单的货币都会被分配一个`Fee Discount Rate`，$R_d$ 这是由网络通过链上治理设定的。折扣适用于付款或结算`Take Fee`期间`Make Fee`。由于鼓励使用 AKT 进行支付和结算符合 AKT 持有者的最佳利益，因此我们预计使用 AKT 时折扣会很有吸引力。当设置为 100% 时，网络不会向 AKT 用户收取任何费用。
+
+### 激励分配池
+
+激励分配池包含一篮子白名单货币和 AKT，这些货币和 AKT 会分配给网络参与者，作为他们对网络贡献的奖励。该池的资金来自上述收取的费用和通货膨胀奖励Take Fee。Make Fee
+
+该池将分配给以下一组参与者。分配给每个参与者的池份额由网络通过链上治理确定。
+
+![IDP](https://raw.githubusercontent.com/gosuri/akt20/main/akt20.drawio.svg)
+
+- 供应商补贴
+
+Early on in the network's lifecycle, the network will need to subsidize providers to ensure the network has enough computing power to offer attractive prices to tenants.
+
+There are numerous ways to subsidize providers, some considerations are:
+
+* Cover cost of the operational and amortized cost of the hardware for a period of time.
+* Incentivize based on amount wokload they host, similar to [Filecoin Plus][filecoin-plus] Program.
+* Use an "exponential discount model" described in Evolution of the Akash Network Token Economics [blog post][akt-evolution].
+
+- 公共物品基金
+
+We propose a portion of the Tokens from the `Incentive Distribution Pool` be allocated to the Public Goods Fund to incentivize the growth of the Akash Network. The Public Goods Fund is a pool of AKT that is distributed to developers who build applications that grow the Akash Network and its adoption. The Developer Fund is distributed through on-chain governance.
+
+The mechanism for distributing the Developer Fund will be determined by the [Steering Committee][streeing-committee].
+
+### 质押者
+
+我们建议将部分代币Incentive Distribution Pool分配给公共产品基金，以激励 Akash 网络的发展。公共产品基金是一个 AKT 池，分配给开发应用程序以发展 Akash 网络及其采用的开发人员。开发者基金通过链上治理进行分配。
+
+开发者基金的分配机制将由指导委员会决定。
+
+### 社区池
+
+我们建议将收取的费用的一部分分配给社区池，通过链上治理进行分配，以发展社区
+
+### Burn Remaining Tokens
+
+所有以非 AKT 代币计价的费用都通过去中心化交易所（如Osmosis ）兑换为 AKT ，并与池中的 AKT 一起销毁。
+
+TODO：本提案未考虑 Gas 费用和滑点。我们需要确定如何计算这些费用。
+
+## Calculations
+
+我们定义 $F_t$ 作为`Take Fees`网络为部署而收集的数据，可以表示为:
+
+$F_t = \digamma_0 \cdot R_t \cdot (1 - R_d)$
+
+和, $F_m$ 作为`Make Fees`网络为部署而收集的信息，可以表示为:
+
+$F_m = \digamma_0 \cdot R_m \cdot (1 - R_d)$
+
+- $\digamma_0$ : 是Hosting Fee租户为部署提供的金额
+
+- $R_t$ : 是Take Fee Rate由网络通过链上治理设定
+
+- $R_m$: 是Make Fee Rate网络通过链上治理设置的 
+
+- $R_d$: 是Fee Discount Rate网络通过链上治理设置的代币
+
+- $R_t, R_m, R_d \in [0, 1]$.  
+
+网络为部署收取的费用是:
+
+$F_n = \digamma_0 \cdot (1 - R_d) \cdot (R_t + R_m)$
+
+向提供商提供的订单费用是:
+$F_p = \digamma_0 - F_t$ 或 $F_p = \digamma_0 \cdot (1 - R_t \cdot (1 - R_d))$
+
+
