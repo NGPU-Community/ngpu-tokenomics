@@ -322,13 +322,13 @@ The mechanism for distributing the Developer Fund will be determined by the [Ste
 
 我们建议将收取的费用的一部分分配给社区池，通过链上治理进行分配，以发展社区
 
-### Burn Remaining Tokens
+### 销毁剩余代币
 
 所有以非 AKT 代币计价的费用都通过去中心化交易所（如Osmosis ）兑换为 AKT ，并与池中的 AKT 一起销毁。
 
 TODO：本提案未考虑 Gas 费用和滑点。我们需要确定如何计算这些费用。
 
-## Calculations
+## 计算方法
 
 我们定义 $F_t$ 作为`Take Fees`网络为部署而收集的数据，可以表示为:
 
@@ -353,6 +353,7 @@ $F_m = \digamma_0 \cdot R_m \cdot (1 - R_d)$
 $F_n = \digamma_0 \cdot (1 - R_d) \cdot (R_t + R_m)$
 
 向提供商提供的订单费用是:
+
 $F_p = \digamma_0 - F_t$ 或 $F_p = \digamma_0 \cdot (1 - R_t \cdot (1 - R_d))$
 
 
