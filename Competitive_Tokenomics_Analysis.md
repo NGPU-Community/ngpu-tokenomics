@@ -111,7 +111,7 @@ IO.net 使用程序化代币销毁系统，其中 io.net 从 IOG 网络产生的
 CloreAI是一个GPU租用平台，采用btc和CLORE由miner定价，通过marketplace呈现给需求方购买。
 
 ## 节点信息
-![8795b47bf74d4fb19b314a093dca9842.png](../_resources/8795b47bf74d4fb19b314a093dca9842.png)
+![8795b47bf74d4fb19b314a093dca9842.png](_resources/8795b47bf74d4fb19b314a093dca9842.png)
 
 ## 历史
 + 2022年2月上线
@@ -133,15 +133,15 @@ CloreAI是一个GPU租用平台，采用btc和CLORE由miner定价，通过market
 6. 没有惩罚
 
 ## 币值 CLORE
-![4ebd4263439d4c3a4362a6e2f60f78d7.png](../_resources/4ebd4263439d4c3a4362a6e2f60f78d7.png)
+![4ebd4263439d4c3a4362a6e2f60f78d7.png](_resources/4ebd4263439d4c3a4362a6e2f60f78d7.png)
 
 
 # Bittensor
 Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用自己独立的基于 Substrate 的 L1 区块链。在根子网的基础上，可以建立若干子网，每个子网包括validator，miner两类节点，同时包括子网creator，以及质押人。
-![5cafc88d493f6a6d867bd968360ff0cc.png](../_resources/5cafc88d493f6a6d867bd968360ff0cc.png)
+![5cafc88d493f6a6d867bd968360ff0cc.png](_resources/5cafc88d493f6a6d867bd968360ff0cc.png)
 
 下图为yalidator的流程
-![24354ff81204c019b5103dc0e63854cd.png](../_resources/24354ff81204c019b5103dc0e63854cd.png)
+![24354ff81204c019b5103dc0e63854cd.png](_resources/24354ff81204c019b5103dc0e63854cd.png)
 
 ## ai任务处理的流程
 1. 查询被发送到验证器，然后发送到连接的矿工
@@ -153,7 +153,7 @@ Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用�
 2. Validator自己也发起校验任务，根据结果调整miner的信任系数。YC根据任务量系数分配Tao子网，然后根据固定比例给creator，miner，validator。给miner根据validator的信任系数
 3. Miner/Validator和subnet都在各自层面进行竞争，排序差的被淘汰。
 4. 申请Subnet、Miner/validator都需要Tao作为费用。
-![d09f74c7c10737a71b7ce788b10ec83c.png](../_resources/d09f74c7c10737a71b7ce788b10ec83c.png)
+![d09f74c7c10737a71b7ce788b10ec83c.png](_resources/d09f74c7c10737a71b7ce788b10ec83c.png)
 
 + 根子网：只有64个经过竞争上线的validator，没有miner，validator对于每个子网进行评估，保留权重系数。
 
@@ -161,18 +161,18 @@ Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用�
 
 最好的模型（子网）获得最多的奖励，token  21M，每一个block 12秒会新生成一个Tao。目前没有销毁 采用Tao购买子网提供的Ai服务。
 20240605的数据：
-![6ee733e4cd085c4b12243b4870cca791.png](../_resources/6ee733e4cd085c4b12243b4870cca791.png)
+![6ee733e4cd085c4b12243b4870cca791.png](_resources/6ee733e4cd085c4b12243b4870cca791.png)
 这一个Tao将根据每个子网的性能分配给各子网。根网络决定每个子网的百分比部分。因此，所有这些部分的百分比分配将总和为100%，即一个 TAO (𝜏)。
 根子网决定每个子网的激励：
 1. 统计每个validator对于每个子网的权重W，考虑质押以后转化为Trust T
-![971f1eb774935389c7872437608a9108.png](../_resources/971f1eb774935389c7872437608a9108.png)
+![971f1eb774935389c7872437608a9108.png](_resources/971f1eb774935389c7872437608a9108.png)
 可见，W只要满足一定数值即可，而stake是线性增加的。
 2. 计算Rank，采用加权平均计算
-![043a720e46ea8c9d2f2c7ec44b4c1f6e.png](../_resources/043a720e46ea8c9d2f2c7ec44b4c1f6e.png)
+![043a720e46ea8c9d2f2c7ec44b4c1f6e.png](_resources/043a720e46ea8c9d2f2c7ec44b4c1f6e.png)
 4. 计算Consensus，但是rho，与T具体含义未明确
-![761fd641f599a05e5c2cacca25d8841a.png](../_resources/761fd641f599a05e5c2cacca25d8841a.png)
+![761fd641f599a05e5c2cacca25d8841a.png](_resources/761fd641f599a05e5c2cacca25d8841a.png)
 5. 计算每个子网的分发量
-![53324bb168a9aa1377cb8b0906910143.png](../_resources/53324bb168a9aa1377cb8b0906910143.png)
+![53324bb168a9aa1377cb8b0906910143.png](_resources/53324bb168a9aa1377cb8b0906910143.png)
 18% of it goes to the subnet owner.
 41% goes to subnet validators (this is called dividend).
 41% goes to the subnet miners (this is called incentive).
@@ -203,6 +203,6 @@ senate
 节点、子网的必需品
 
 交易情况
-![dd57acd94207796170aabd19ddf486b2.png](../_resources/dd57acd94207796170aabd19ddf486b2.png)
+![dd57acd94207796170aabd19ddf486b2.png](_resources/dd57acd94207796170aabd19ddf486b2.png)
 子网注册费用
-![2ccd828798b50058607db4c0edbb0dd0.png](../_resources/2ccd828798b50058607db4c0edbb0dd0.png)
+![2ccd828798b50058607db4c0edbb0dd0.png](_resources/2ccd828798b50058607db4c0edbb0dd0.png)
