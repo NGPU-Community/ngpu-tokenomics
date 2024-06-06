@@ -186,6 +186,7 @@ validator的流程：由validator发起挑战任务，并且与正常业务请�
 ![761fd641f599a05e5c2cacca25d8841a.png](./_resources/761fd641f599a05e5c2cacca25d8841a.png)
 
 4. 计算每个子网的分发量
+
 ![53324bb168a9aa1377cb8b0906910143.png](./_resources/53324bb168a9aa1377cb8b0906910143.png)
 
 18% of it goes to the subnet owner.
