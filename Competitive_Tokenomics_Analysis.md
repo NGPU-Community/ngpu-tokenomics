@@ -110,8 +110,10 @@ IO.net 使用程序化代币销毁系统，其中 io.net 从 IOG 网络产生的
 # CloreAI
 CloreAI是一个GPU租用平台，采用btc和CLORE由miner定价，通过marketplace呈现给需求方购买。
 
-## 节点信息
-![8795b47bf74d4fb19b314a093dca9842.png](_resources/8795b47bf74d4fb19b314a093dca9842.png)
+## 节点信息 
+2024-06-05
+Online machines：4797
+Machines rented：3058
 
 ## 历史
 + 2022年2月上线
@@ -123,8 +125,8 @@ CloreAI是一个GPU租用平台，采用btc和CLORE由miner定价，通过market
 ## 平台收费
 对现货市场下的订单收取2.5%的费用，对按需订单收取10%的费用（比特币支付），对于美元支付，由于交易费用较高，我们收取19.5%的费用，外加非常低的订单创建费（低于$0.01）。
 
-## 持有证明
-您持有的 Clore 币越多，您租赁设备获得的奖金 $clore 就越多。不是质押
+## 持有证明 （Proof of Holdings）
+用户持有的 Clore 币越多，在租赁设备时获得的奖金 $clore 就越多。PoH不是质押，相比于质押
 1. 设备方增加了收益
 2. 不需要像质押一样做转移
 3. 租用方节省了费用
@@ -132,16 +134,19 @@ CloreAI是一个GPU租用平台，采用btc和CLORE由miner定价，通过market
 5. 可以参加，也可以不参加
 6. 没有惩罚
 
+
 ## 币值 CLORE
-![4ebd4263439d4c3a4362a6e2f60f78d7.png](_resources/4ebd4263439d4c3a4362a6e2f60f78d7.png)
+2024-06-05
+Total Supply：360M
+Price：$0.1651
+Market Cap：$ 59M
+
 
 
 # Bittensor
 Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用自己独立的基于 Substrate 的 L1 区块链。在根子网的基础上，可以建立若干子网，每个子网包括validator，miner两类节点，同时包括子网creator，以及质押人。
-![5cafc88d493f6a6d867bd968360ff0cc.png](_resources/5cafc88d493f6a6d867bd968360ff0cc.png)
 
-下图为yalidator的流程
-![24354ff81204c019b5103dc0e63854cd.png](_resources/24354ff81204c019b5103dc0e63854cd.png)
+validator的流程：由validator发起挑战任务，并且与正常业务请求不可区分，然后采用标准答案与miner返回值对比差异，确定权重系数，为miner后面的激励分配提供依据。
 
 ## ai任务处理的流程
 1. 查询被发送到验证器，然后发送到连接的矿工
@@ -149,30 +154,41 @@ Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用�
 3. Yuma 向每个子网发出 Tao。
 
 ## 相比于NGPU
-1. 没有中央的调度，由用户自己连接一个subnet validator完成ai的推理
-2. Validator自己也发起校验任务，根据结果调整miner的信任系数。YC根据任务量系数分配Tao子网，然后根据固定比例给creator，miner，validator。给miner根据validator的信任系数
+1. 没有中央的调度，由用户自己选择一个subnet validator完成ai的推理
+2. Validator自己也发起校验任务，根据结果调整miner的信任系数。YC根据任务量系数分配Tao子网，然后根据固定比例给creator，miner，validator三类角色。给miner根据validator的权重系数
 3. Miner/Validator和subnet都在各自层面进行竞争，排序差的被淘汰。
 4. 申请Subnet、Miner/validator都需要Tao作为费用。
-![d09f74c7c10737a71b7ce788b10ec83c.png](_resources/d09f74c7c10737a71b7ce788b10ec83c.png)
 
-+ 根子网：只有64个经过竞争上线的validator，没有miner，validator对于每个子网进行评估，保留权重系数。
+
++ 根子网：只有64个经过竞争上线的validator，没有miner，validator对于每个子网进行评估，保留权重系数，从而确定每个子网的激励值。
 
 ## 激励分配
 
 最好的模型（子网）获得最多的奖励，token  21M，每一个block 12秒会新生成一个Tao。目前没有销毁 采用Tao购买子网提供的Ai服务。
 20240605的数据：
-![6ee733e4cd085c4b12243b4870cca791.png](_resources/6ee733e4cd085c4b12243b4870cca791.png)
+已运行天数：945天
+活跃账户：86,492
+总质押：5,751,813 Tao
+总发行token：6,885,398
 这一个Tao将根据每个子网的性能分配给各子网。根网络决定每个子网的百分比部分。因此，所有这些部分的百分比分配将总和为100%，即一个 TAO (𝜏)。
 根子网决定每个子网的激励：
 1. 统计每个validator对于每个子网的权重W，考虑质押以后转化为Trust T
-![971f1eb774935389c7872437608a9108.png](_resources/971f1eb774935389c7872437608a9108.png)
+
+![971f1eb774935389c7872437608a9108.png](./_resources/971f1eb774935389c7872437608a9108.png)
+
 可见，W只要满足一定数值即可，而stake是线性增加的。
 2. 计算Rank，采用加权平均计算
-![043a720e46ea8c9d2f2c7ec44b4c1f6e.png](_resources/043a720e46ea8c9d2f2c7ec44b4c1f6e.png)
-4. 计算Consensus，但是rho，与T具体含义未明确
-![761fd641f599a05e5c2cacca25d8841a.png](_resources/761fd641f599a05e5c2cacca25d8841a.png)
-5. 计算每个子网的分发量
-![53324bb168a9aa1377cb8b0906910143.png](_resources/53324bb168a9aa1377cb8b0906910143.png)
+
+![043a720e46ea8c9d2f2c7ec44b4c1f6e.png](./_resources/043a720e46ea8c9d2f2c7ec44b4c1f6e.png)
+
+3. 计算Consensus，但是rho，与T具体含义未明确
+
+![761fd641f599a05e5c2cacca25d8841a.png](./_resources/761fd641f599a05e5c2cacca25d8841a.png)
+
+4. 计算每个子网的分发量
+
+![53324bb168a9aa1377cb8b0906910143.png](./_resources/53324bb168a9aa1377cb8b0906910143.png)
+
 18% of it goes to the subnet owner.
 41% goes to subnet validators (this is called dividend).
 41% goes to the subnet miners (this is called incentive).
@@ -194,7 +210,7 @@ Tao（bitTensor）的基础架构，Bittensor 建立在波卡生态上，使用�
 三巨头之一就可以产生提案 ==> 超过2%质押量（含委托）等4个条件的人可以竞选senate，12个席位，投票决定 ==>  三巨头执行在此之前，由单一私钥掌管
 
 ## 选举
-senate
+senate：12个席位经过竞争获得，账户质押额要高于总质押额的2%。
 
 ## 委托/代理
 受委托人将获得被委托部分18%的收益，这样可以实现委托理财，也可以委托给Opentensor Foundation 
@@ -202,7 +218,142 @@ senate
 ## 质押
 节点、子网的必需品
 
-交易情况
-![dd57acd94207796170aabd19ddf486b2.png](_resources/dd57acd94207796170aabd19ddf486b2.png)
-子网注册费用
-![2ccd828798b50058607db4c0edbb0dd0.png](_resources/2ccd828798b50058607db4c0edbb0dd0.png)
+## 交易情况
+2024-06-05，Tao
+Price：$392.85
+Market Cap: $2.70b
+24 h volume: $26.54M
+Total Supply: 21M
+
+## 子网注册质押   
+2024-05-14 $2374.21
+
+
+# Akash Network ($AKT)
+
+Akash 网络: 基于cosmos 的去中心化云计算平台
+
+由以下几个主要部分组成: Akash 提供商，管理基础设施和 Kubernetes 集群；Akash 网络，一个类似于 Airbnb 的数据中心多功能平台，提供成本效益、选择、标准化资源、开源原则和社区参与；以及 Akash 租户，将应用程序部署为 Docker 容器，受益于去中心化部署。它们共同构成了 Akash 网络的基础
+
+## 交易所
+- Exchange: Osmosis、Coinbase、upbit、Kraken、Gate.io、HTX、KuCoin、Cryptom.com、Bitthumb、XT.com
+
+## 2024.6.5 币值信息
+- 价格: $4.47
+- 总供应量: 239,310,076 AKT
+- 最大供应量: 388,539,008 AKT
+- 24小时交易量: $13,298,207
+
+## AKT作用
+- 安全: 为 Akash 网络由权益证明 (PoS) 区块链保护，而 AKT 用于通过质押来保护网络。质押 AKT 为质押者提供了被动收入来源，并提高了网络的安全性。
+- 治理: Akash 网络由社区所有，网络的各个方面均由 AKT 持有者管理。AKT 持有者可以对改进网络的提案进行投票，并管理通货膨胀率和收取率等关键参数。
+- 价值交换: AKT 提供了一种存储和交换价值的默认机制，并充当 Cosmos 多币种、多链生态系统中的储备货币。
+- 激励: 为 Akash网络生态提供激励
+
+## 经济模型图： 
+
+![IDP](https://akash.network/_astro/akt-features.DLGCmQ4N.svg)
+
+- [AKT 解锁时间表](https://docs.google.com/spreadsheets/d/1MUULetp59lgNq0z4ckVI51QdtMGvqtKOW8wRfX5R8yY/edit#gid=2130333819)
+
+
+## AKT 2.0的主要特点是
+- 收取和支付费用（现已上线）
+- 稳定的支付和结算（现已上线）
+- 激励分配池
+- 供应商补贴
+- 公共物品基金
+
+## AKT 2.0 详情
+
+### 网络安全与AKT值成正比
+
+Akash 网络通过其权益证明共识来确保安全，这要求质押者使用 AKT 代币作为质押。质押的 AKT 越多，网络的安全性就越高。AKT 的价值由需求驱动，因此随着网络使用量的增加，其价值也必须增加，以保证所有参与者的最大安全性。
+
+正如原始经济学 [paper][akt-economics-1], AKT 的初始供应量, $t=0$, 定义为 $M_0 = 10^8$ AKT 的最大供应量计算为 $M_{max}\approx3.89 M_0$ 和 $M_{max} - M_0$ 在网络的整个生命周期内，将代币分发给 AKT 质押者，作为保护网络的奖励。奖励在每个区块中分配，金额由[Cosmos SDK `x/mint` module][cosmos-sdk-x-mint]模块中定义的网络参数决定。
+
+这些网络参数是通过链上治理设置的，并遵循衰减函数，随着时间的推移，通货膨胀率会降低。随着奖励金额随着时间的推移而减少，对于 AKT 持有者来说，通过质押锁定其代币的吸引力会降低，从而降低了网络的安全性。
+
+### 收取并支付费用
+
+由于 AKT 的价值由需求驱动，我们建议网络对租户向提供商支付的托管费征税，并将其分配给网络的安全预算。这确保了 Akash 网络的使用和安全之间的直接一致性。
+
+Akash 是一个去中心化交易所，市场的健康取决于其交易商品（计算）的流动性。我们建议租户在从市场获取流动性时支付手续费，提供商在向市场提供流动性时支付手续费。手续费在创建时从订单中扣除，并由网络通过链上治理设定.
+
+预计 AKT 持有者将选择足够高的费用来确保网络安全，但又不会太高而阻碍网络的使用和增长。
+
+### 支持多种货币，支付结算稳定
+
+我们建议 Akash 网络实施多代币结算机制，允许使用稳定代币支付托管费用，让用户能够预先预测托管成本。代币白名单可以通过链上治理完成。
+
+此外，每一种列入白名单的货币都会被分配一个`Fee Discount Rate`，$R_d$ 这是由网络通过链上治理设定的。折扣适用于付款或结算`Take Fee`期间`Make Fee`。由于鼓励使用 AKT 进行支付和结算符合 AKT 持有者的最佳利益，因此我们预计使用 AKT 时折扣会很有吸引力。当设置为 100% 时，网络不会向 AKT 用户收取任何费用。
+
+### 激励分配池
+
+激励分配池包含一篮子白名单货币和 AKT，这些货币和 AKT 会分配给网络参与者，作为他们对网络贡献的奖励。该池的资金来自上述收取的费用和通货膨胀奖励Take Fee。Make Fee
+
+该池将分配给以下一组参与者。分配给每个参与者的池份额由网络通过链上治理确定。
+
+![IDP](https://raw.githubusercontent.com/gosuri/akt20/main/akt20.drawio.svg)
+
+- 供应商补贴
+
+Early on in the network's lifecycle, the network will need to subsidize providers to ensure the network has enough computing power to offer attractive prices to tenants.
+
+There are numerous ways to subsidize providers, some considerations are:
+
+* Cover cost of the operational and amortized cost of the hardware for a period of time.
+* Incentivize based on amount wokload they host, similar to [Filecoin Plus][filecoin-plus] Program.
+* Use an "exponential discount model" described in Evolution of the Akash Network Token Economics [blog post][akt-evolution].
+
+- 公共物品基金
+
+We propose a portion of the Tokens from the `Incentive Distribution Pool` be allocated to the Public Goods Fund to incentivize the growth of the Akash Network. The Public Goods Fund is a pool of AKT that is distributed to developers who build applications that grow the Akash Network and its adoption. The Developer Fund is distributed through on-chain governance.
+
+The mechanism for distributing the Developer Fund will be determined by the [Steering Committee][streeing-committee].
+
+### 质押者
+
+我们建议将部分代币Incentive Distribution Pool分配给公共产品基金，以激励 Akash 网络的发展。公共产品基金是一个 AKT 池，分配给开发应用程序以发展 Akash 网络及其采用的开发人员。开发者基金通过链上治理进行分配。
+
+开发者基金的分配机制将由指导委员会决定。
+
+### 社区池
+
+我们建议将收取的费用的一部分分配给社区池，通过链上治理进行分配，以发展社区
+
+### 销毁剩余代币
+
+所有以非 AKT 代币计价的费用都通过去中心化交易所（如Osmosis ）兑换为 AKT ，并与池中的 AKT 一起销毁。
+
+TODO：本提案未考虑 Gas 费用和滑点。我们需要确定如何计算这些费用。
+
+## 计算方法
+
+我们定义 $F_t$ 作为`Take Fees`网络为部署而收集的数据，可以表示为:
+
+$F_t = \digamma_0 \cdot R_t \cdot (1 - R_d)$
+
+和, $F_m$ 作为`Make Fees`网络为部署而收集的信息，可以表示为:
+
+$F_m = \digamma_0 \cdot R_m \cdot (1 - R_d)$
+
+- $\digamma_0$ : 是Hosting Fee租户为部署提供的金额
+
+- $R_t$ : 是Take Fee Rate由网络通过链上治理设定
+
+- $R_m$: 是Make Fee Rate网络通过链上治理设置的 
+
+- $R_d$: 是Fee Discount Rate网络通过链上治理设置的代币
+
+- $R_t, R_m, R_d \in [0, 1]$.  
+
+网络为部署收取的费用是:
+
+$F_n = \digamma_0 \cdot (1 - R_d) \cdot (R_t + R_m)$
+
+向提供商提供的订单费用是:
+
+$F_p = \digamma_0 - F_t$ 或 $F_p = \digamma_0 \cdot (1 - R_t \cdot (1 - R_d))$
+
+
