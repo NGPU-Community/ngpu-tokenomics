@@ -2,6 +2,7 @@
 ## Incentive Overall Distribution
 + Computing Power Providers, Ecosystem: 51.0%
 + Investment Institutions: 20.0%
+
 **<span style="color:red;">Foundation, Team, Advisors: 21.0%</span>**
 
 + Foundation: 7.0%
@@ -15,6 +16,7 @@
 
 **Derived Roles**
 + **Staker:** Stakes a certain amount of (USDT, BTC, ETH, etc.) to a specified GPU computing power node, becoming a beneficiary of task incentives for that computing power node.
+
 **<span style="color:red;">Stakers and computing power nodes are integrated. After receiving incentives, the distribution between stakers and computing power nodes is decided by themselves (later, NGPU can provide a staking distribution smart contract to distribute incentives according to the allocation ratio specified in the smart contract).</span>**
 
 ## Incentive Definitions
@@ -60,6 +62,7 @@ Single Node Task Incentive = Σ ((GPU time consumed by each AI task (seconds) * 
 
 + **Network Incentive:**  The computing power provider logs into NGPU to form a computing power network. After measurement, the computing power node can periodically receive network incentives.
 + **Task Incentive:** The computing power node can receive task incentives after successfully completing AI tasks.
+
 **Computing Power Demander**
 
 The computing power demander (DAPP party) exists as the payer on the NGPU platform. They can pay (USDT, BTC, ETH, etc.) to NGPU, which converts it to platform incentives and pays the computing power nodes (task incentive) after taking a fee. NGPU will periodically or occasionally buy back and burn incentives from the market to stabilize prices.
@@ -67,6 +70,7 @@ The computing power demander (DAPP party) exists as the payer on the NGPU platfo
 **Payment Fees**
 
 + The computing power demander can pay (USDT, BTC, ETH, etc.), with NGPU taking a fee.
+
 **User (For Statistics Only, No Incentives)**
 
 + NGPU provides detailed lists of the number and time consumption of AI tasks executed by users. The DAPP party can incentivize users based on these lists, but NGPU does not incentivize users.
